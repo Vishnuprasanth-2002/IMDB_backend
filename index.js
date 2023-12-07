@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const config = require("./config/config");
+const { models, Sequelize } = require("./config/sequelize-config");
 
 // create application/json parser
 const jsonParser = bodyParser.json();
