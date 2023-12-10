@@ -4,13 +4,14 @@ const bodyParser = require("body-parser");
 const config = require("./config/config");
 const { models, Sequelize } = require("./config/sequelize-config");
 const userRouter = require("./routes/users.routes");
+const cors = require("cors");
 
 // create application/json parser
 const jsonParser = bodyParser.json();
 
 // create application/x-www-form-urlencoded parser
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-
+app.use(cors);
 app.use(jsonParser);
 app.use(urlencodedParser);
 app.use("/", userRouter);
