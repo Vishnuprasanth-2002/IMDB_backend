@@ -55,24 +55,24 @@ const getAllMovieController = async (req, res, next) => {
       ],
     });
 
-    // const moviesWithFormattedData = getMovies.map((movie) => {
-    //   const ratings = movie.ratings.map((rating) => ({
-    //     rating: rating.rating,
-    //     ratedBy: rating.userRating.user_name,
-    //   }));
+    const moviesWithFormattedData = getMovies.map((movie) => {
+      const ratings = movie.ratings.map((rating) => ({
+        rating: rating.rating,
+        ratedBy: rating.userRating.user_name,
+      }));
 
-    //   const overallRating = movie.ratings.length
-    //     ? movie.ratings.reduce((total, rating) => total + rating.rating, 0) /
-    //       movie.ratings.length
-    //     : 0;
+      const overallRating = movie.ratings.length
+        ? movie.ratings.reduce((total, rating) => total + rating.rating, 0) /
+          movie.ratings.length
+        : 0;
 
-    //   return {
-    //     movieName: movie.movie_name,
-    //     addedBy: movie.addedBy.user_name,
-    //     ratings,
-    //     overallRating,
-    //   };
-    // });
+      return {
+        movieName: movie.movie_name,
+        addedBy: movie.addedBy.user_name,
+        ratings,
+        overallRating,
+      };
+    });
 
     res.json({
       getMovies,
