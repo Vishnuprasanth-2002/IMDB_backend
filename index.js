@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 
 // create application/x-www-form-urlencoded parser
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-app.use(cors);
+app.use(cors());
 app.use(jsonParser);
 app.use(urlencodedParser);
 app.use("/", userRouter);
