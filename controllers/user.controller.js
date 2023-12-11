@@ -55,13 +55,13 @@ const loginController = async (req, res, next) => {
 
       if (passwordMatch) {
         const payload = {
-          id: searchUser.id,
+          user_id: searchUser.user_id,
           first_name: searchUser.first_name,
           last_name_name: searchUser.last_name,
           user_name: searchUser.user_name,
         };
         const gen_token = jwt.sign(payload, config.jwtSecret, {
-          expiresIn: "1m",
+          expiresIn: "1h",
         });
         const updateUser = await models.users.update(
           {

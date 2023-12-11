@@ -70,13 +70,19 @@ module.exports = function model(sequelize, types) {
       tableName: "users",
     }
   );
-  // Users.associate = function (models) {
-  //   Users.hasMany(models.posts, {
-  //     as: "posts",
-  //     foreignKey: "userId",
-  //     sourceKey: "uuid",
-  //   });
-  // };
-
+  Users.associate = function (models) {
+    Users.hasMany(models.movies, {
+      as: "addedBy", // Alias for the association
+      foreignKey: "user_id", // Foreign key in the movies table referencing user_id in users table
+      sourceKey: "user_id",
+    });
+  };
+  Users.associate = function (models) {
+    Users.hasMany(models.ratings, {
+      as: "userRating", // Alias for the association
+      foreignKey: "user_id", // Foreign key in the movies table referencing user_id in users table
+      sourceKey: "user_id",
+    });
+  };
   return Users;
 };

@@ -13,7 +13,7 @@ const { addRatingController } = require("../controllers/rating.controller");
 const movieRouter = express.Router();
 
 movieRouter.post(
-  "/movie",
+  "/movies",
   isAuthorised,
   validate(addMovieSchema),
   addMovieController
