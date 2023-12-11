@@ -1,13 +1,15 @@
 const express = require("express");
 const { validate } = require("../middlewares/validate.middleware");
+
+const { isAuthorised } = require("../middlewares/authorisation.middleware");
+const { addMovieSchema } = require("../validations/movie.schema");
 const {
   addMovieController,
   getAllMovieController,
 } = require("../controllers/movie.controller");
-const { addMovieSchema } = require("../validations/");
-const { isAuthorised } = require("../middlewares/authorisation.middleware");
-const { addRatingController } = require("../controllers/rating.controller");
 const { addRatingSchema } = require("../validations/rating.schema");
+const { addRatingController } = require("../controllers/rating.controller");
+
 const movieRouter = express.Router();
 
 movieRouter.post(
